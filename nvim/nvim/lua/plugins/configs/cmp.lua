@@ -28,7 +28,7 @@ local formatting_style = {
     end
 
     return item
-  end,
+  end
 }
 
 local function border(hl_name)
