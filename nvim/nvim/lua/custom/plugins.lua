@@ -29,7 +29,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "denols",
+        "deno",
         "rust-analyzer",
         "typescript-language-server",
         "tailwindcss-language-server",
