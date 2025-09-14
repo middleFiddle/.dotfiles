@@ -36,7 +36,9 @@ local plugins = {
         "eslint-lsp",
         "prettierd",
         "astro-language-server",
-        "nextls"
+        "ocaml-ls",
+        "ocamlformat",
+        "elixirls"
       },
     },
   },
@@ -44,7 +46,7 @@ local plugins = {
     "ionide/Ionide-vim",
     ft = "fsharp",
     dependencies = "neovim/nvim-lspconfig",
-    config = function ()
+    config = function()
       require "custom.configs.ionide"
     end
   },
@@ -83,16 +85,8 @@ local plugins = {
 
       elixir.setup {
         nextls = { enable = true },
-        credo = {
-          enable = false,
-          cmd = "path/to/credo-language-server", -- path to the executable. mutually exclusive with `port`
-          version = "0.1.0-rc.3",                -- version of credo-language-server to install and use. defaults to the latest release
-          on_attach = function(client, bufnr)
-            -- custom keybinds
-          end
-        },
         elixirls = {
-          enable = false,
+          enable = true,
           settings = elixirls.settings {
             dialyzerEnabled = false,
             enableTestLenses = false,
@@ -102,6 +96,9 @@ local plugins = {
             vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
             vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
           end,
+        },
+        projectionist = {
+          enable = true
         }
       }
     end,
